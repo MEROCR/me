@@ -1,8 +1,8 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Brookhaven RP🏡",
-    SubTitle = "by (z4trox hub)",
+    Title = "mero script",
+    SubTitle = "by (mero hub)",
     TabWidth = 160,
     Size = UDim2.fromOffset(480, 310),
     Acrylic = true,
@@ -27,13 +27,13 @@ Tabs.Home:AddParagraph({
 })
 Tabs.Home:AddParagraph({
     Title = "Credit 💳",
-    Content = "Discord user: z4trox"
+    Content = "tele user @QP4RM"
 })
 
 -----------------------------------------------------------
 -- Mada Hub Section
 -----------------------------------------------------------
-Tabs.Mada:AddSection("Mada Hub")
+Tabs.Mada:AddSection("Mero Hub")
 
 Tabs.Mada:AddParagraph({
     Title = "Welcome",
@@ -87,4 +87,5 @@ Tabs.Music:AddInput("House Music ID", {
             remote:FireServer(unpack(args))
         end
     end
+
 })
