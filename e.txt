@@ -1,0 +1,90 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "Brookhaven RP🏡",
+    SubTitle = "by (z4trox hub)",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(480, 310),
+    Acrylic = true,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl
+})
+
+-- Tabs
+local Tabs = {
+    Home = Window:AddTab({ Title = "Home", Icon = "home" }),
+    Music = Window:AddTab({ Title = "Music", Icon = "music" }),
+    Mada = Window:AddTab({ Title = "Mada Hub", Icon = "cpu" })
+}
+
+-----------------------------------------------------------
+-- Home Section
+-----------------------------------------------------------
+Tabs.Home:AddSection("Update Logs📜/Credit 💳")
+Tabs.Home:AddParagraph({
+    Title = "Update Logs 📜",
+    Content = "Added Bundles\nNew UI Library\nAdded 'House' input for House Music"
+})
+Tabs.Home:AddParagraph({
+    Title = "Credit 💳",
+    Content = "Discord user: z4trox"
+})
+
+-----------------------------------------------------------
+-- Mada Hub Section
+-----------------------------------------------------------
+Tabs.Mada:AddSection("Mada Hub")
+
+Tabs.Mada:AddParagraph({
+    Title = "Welcome",
+    Content = "This is the Mada Hub section. More features coming soon!"
+})
+
+Tabs.Mada:AddButton({
+    Title = "Execute Mada Hub Script",
+    Description = "Run Mada Hub loader",
+    Callback = function()
+        loadstring(game:HttpGet("https://api.websim.com/blobs/01982795-f483-73f5-8de4-4446c9967fa5.txt"))()
+    end
+})
+
+-----------------------------------------------------------
+-- Music Section
+-----------------------------------------------------------
+Tabs.Music:AddSection("Music Section")
+
+Tabs.Music:AddInput("Scooter Music ID", {
+    Title = "Scooter Music ID",
+    Default = "",
+    Placeholder = "Enter ID here",
+    Finished = true,
+    Callback = function(Value)
+        local args = {
+            [1] = "PickingScooterMusicText",
+            [2] = Value
+        }
+        local rs = game:GetService("ReplicatedStorage")
+        local remote = rs.RE:FindFirstChild("1NoMoto1rVehicle1s")
+        if remote then
+            remote:FireServer(unpack(args))
+        end
+    end
+})
+
+Tabs.Music:AddInput("House Music ID", {
+    Title = "House Music ID",
+    Default = "",
+    Placeholder = "Enter ID here",
+    Finished = true,
+    Callback = function(Value)
+        local args = {
+            [1] = "PickHouseMusicText",
+            [2] = Value
+        }
+        local rs = game:GetService("ReplicatedStorage")
+        local remote = rs.RE:FindFirstChild("1Player1sHous1e")
+        if remote then
+            remote:FireServer(unpack(args))
+        end
+    end
+})
